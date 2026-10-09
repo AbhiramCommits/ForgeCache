@@ -1,0 +1,72 @@
+# ForgeCache: one coordinator + three workers on a shared network.
+#
+# Run a build through the cluster:
+#   docker compose up --build --abort-on-container-exit
+#
+# The coordinator runs one build against the three workers and writes a report
+# to ./bench/results/docker-report.json, then exits; --abort-on-container-exit
+# stops the workers.
+services:
+  worker1:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.worker
+    image: forgecache-worker:latest
+    command:
+      ["--listen", "0.0.0.0:7701", "--slots", "4",
+       "--workdir", "/tmp/forge-worker", "--id", "worker1"]
+    networks: [forge]
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1g
+
+  worker2:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.worker
+    image: forgecache-worker:latest
+    command:
+      ["--listen", "0.0.0.0:7701", "--slots", "4",
+       "--workdir", "/tmp/forge-worker", "--id", "worker2"]
+    networks: [forge]
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1g
+
+  worker3:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.worker
+    image: forgecache-worker:latest
+    command:
+      ["--listen", "0.0.0.0:7701", "--slots", "4",
+       "--workdir", "/tmp/forge-worker", "--id", "worker3"]
+    networks: [forge]
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1g
+
+  coord:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.coord
+    image: forgecache-coord:latest
+    depends_on: [worker1, worker2, worker3]
+    networks: [forge]
+    volumes:
+      - ./bench/results:/out
+    command:
+      ["build", "--manifest", "/workloads/firmware/build.json",
+       "--workers", "worker1:7701,worker2:7701,worker3:7701",
+       "--jobs", "6", "--report", "/out/docker-report.json",
+       "--log-format", "json"]
+
+networks:
+  forge:
+    driver: bridge

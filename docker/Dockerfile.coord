@@ -1,0 +1,26 @@
+# ForgeCache coordinator image.
+# Three stages:
+#   1. builder  - compile the `forge-coord` release binary
+#   2. workload - generate the synthetic firmware workload with Python (stdlib)
+#   3. runtime  - slim image with the coordinator + baked-in workload
+FROM rust:1.85-bookworm AS builder
+WORKDIR /src
+COPY Cargo.toml Cargo.lock ./
+COPY crates ./crates
+RUN cargo build --release -p forge-coord
+
+FROM python:3.13-slim AS workload
+WORKDIR /tools
+COPY tools ./tools
+RUN python3 tools/gen_workload.py --out /workloads/firmware \
+    && python3 tools/gen_manifest.py --workload /workloads/firmware
+
+FROM debian:bookworm-slim
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gcc libc6-dev ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /src/target/release/forge-coord /usr/local/bin/forge-coord
+COPY --from=workload /workloads /workloads
+ENTRYPOINT ["forge-coord"]
+CMD ["build", "--manifest", "/workloads/firmware/build.json", \
+     "--workers", "forge-worker:7701", "--jobs", "6", "--log-format", "json"]

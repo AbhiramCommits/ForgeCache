@@ -1,0 +1,18 @@
+# ForgeCache worker image.
+# Multi-stage: build the release binary with the full Rust toolchain, then ship a
+# slim runtime that has a C toolchain so compile/link actions can run.
+FROM rust:1.85-bookworm AS builder
+WORKDIR /src
+COPY Cargo.toml Cargo.lock ./
+COPY crates ./crates
+RUN cargo build --release -p forge-worker
+
+FROM debian:bookworm-slim
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gcc libc6-dev ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /src/target/release/forge-worker /usr/local/bin/forge-worker
+RUN mkdir -p /tmp/forge-worker
+EXPOSE 7701
+ENTRYPOINT ["forge-worker"]
+CMD ["--listen", "0.0.0.0:7701", "--slots", "4", "--workdir", "/tmp/forge-worker"]

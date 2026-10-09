@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forge-worker
+  labels:
+    app: forge-worker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: forge-worker
+  template:
+    metadata:
+      labels:
+        app: forge-worker
+    spec:
+      containers:
+        - name: worker
+          image: forgecache-worker:latest
+          imagePullPolicy: IfNotPresent
+          args:
+            - "--listen"
+            - "0.0.0.0:7701"
+            - "--slots"
+            - "4"
+            - "--workdir"
+            - "/tmp/forge-worker"
+            - "--id"
+            - "$(POD_NAME)"
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          ports:
+            - name: rpc
+              containerPort: 7701
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "256Mi"
+            limits:
+              cpu: "2"
+              memory: "1Gi"
+          # The worker's Ping is a protocol message on the same TCP port, so a
+          # TCP probe against 7701 is the Kubernetes-native liveness check.
+          livenessProbe:
+            tcpSocket:
+              port: rpc
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 2
+          readinessProbe:
+            tcpSocket:
+              port: rpc
+            initialDelaySeconds: 1
+            periodSeconds: 5

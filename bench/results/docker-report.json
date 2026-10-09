@@ -1,0 +1,588 @@
+{
+  "workers": [
+    "worker1",
+    "worker2",
+    "worker3"
+  ],
+  "total_wall_ms": 314,
+  "actions_total": 71,
+  "actions_hit": 0,
+  "actions_miss": 71,
+  "actions_failed": 0,
+  "cache_hit_rate": 0.0,
+  "bytes_from_cas": 0,
+  "bytes_to_cas": 163088,
+  "total_cpu_ms": 948,
+  "critical_path_ms": 52,
+  "achieved_parallelism": 3.0191082802547773,
+  "actions": [
+    {
+      "id": "compile:main",
+      "digest": "3941503039929482c50e06c0a908a2e3c7a483222f160edd9c92377b31f50b41",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 30,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_000",
+      "digest": "924bf64716361310a14d43ac1156be7f6ed662ed72b7af263fe99096f2440279",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 41,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_001",
+      "digest": "a138907b671fd9cff4f7e8a39aea8f5d7ae2ee16e4480e2caca1391817d0cc7c",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 39,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_002",
+      "digest": "5ca0d302cf4844af1021d553d57de278c18e3487d063203564e1fea10b145b30",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 38,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_003",
+      "digest": "5025d8c689ee96cb792d58ad175d90ca321f1979032414ebd1262562278c71a6",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 35,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_004",
+      "digest": "76bea5ec527d919cb3b91542f4f272532351c4c408bf1cbf38fcd0d168e0030a",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 36,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_005",
+      "digest": "c2521dffaff41f869a3582618b912dad532009e94bcb9e3868d64b11e1e370bc",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 13,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_006",
+      "digest": "d064f35697555f8b309384236f451d74347d52c9313ef45940fef267151c282e",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 10,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_007",
+      "digest": "d20591af1ee1622c1d63ff43feb8452fe7bc90e5e508a063064742567c5be598",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 23,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_008",
+      "digest": "f61781a6568594714e9d84d8a3ed315857670b21bee1e27aeca3241bc6c130ed",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 18,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_009",
+      "digest": "d52f8195f04bcfe7fa01324c5ccd55b3d767bde785ee5ae71966d7d2cb083234",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 20,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_010",
+      "digest": "a544d537b86111e307c6b4aaf7ae2ec9c3ee4c7cc7d8c5fb2faf8f3a0cc7bf3c",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 17,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_011",
+      "digest": "c836ea35271c1df33b271a66de8f6fd0b370ca85b2f69057ad9bdcc9eddd7c22",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 18,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_012",
+      "digest": "bcc81a15b0e748b2d2f09aaabe2f5ef9ab9388b624d994c840e8b3b186b39aae",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 18,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_013",
+      "digest": "7eb55d99d53e420a7d0db8877da9a1ae9fedf0cd6a5c9107ceac961720491746",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 12,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_014",
+      "digest": "8b1c22076dc6e401f5b1e644aba43dc22b42bba10cb9877d39e27988348c64d5",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 16,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_015",
+      "digest": "1b1931628ff731bd4b116b9488cde62c95a8e82752124de668a59fdac983fc5f",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 17,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_016",
+      "digest": "fea57fa79dba8a0aef70203fcfd7b9c2aed9ee1f479e372b06fe97daaefca672",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 13,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_017",
+      "digest": "11f3125723d2bf532519398277f910351fa603b7eb1ebc48feb52ba630895986",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_018",
+      "digest": "10bf30f50bf37cd7547d18cbc48cd613526c087cbbd56cd4c847ea443edd8aa3",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 15,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_019",
+      "digest": "b2d8766becb2eeb530719086235dceac63d52dfc7bebe8a0361fabb3410d41ec",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_020",
+      "digest": "20b12d71b862837b0761fc2ea8f2ca65886163d06483e43a82b727ab457caa72",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 13,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_021",
+      "digest": "b4e9408be50bdd9409aa64686386a2516fff5a9a2a2be2b353cc53e5f541a291",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_022",
+      "digest": "9109a307c7c398507c0985d26bd60a92a0951a4092a8ab805a32f2075e8b7bb3",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 12,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_023",
+      "digest": "52bcdd2477c870ec2f395af2f339d256754eb27f41c111901537f9bac5c31a27",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_024",
+      "digest": "dbb75a6192feb0d1fdafb6205fd7a9faac549538ac9f86b42a31deee6f3da263",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 13,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_025",
+      "digest": "c93e62abd456e525e9acf721a9fdab213a07a21234d9081a188a597943605613",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 13,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_026",
+      "digest": "df01f63a301048adf71d006da090e2a8ca0924c958aa9fb42697b4156cb74e99",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 8,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_027",
+      "digest": "0280e5815baa25f849d4b7049a5a5cb5a5b20f81ea3f6fa856d9faa181f8c972",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_028",
+      "digest": "3d1c42684442334b583d278f98c7595b58ae9a599e6b284387839f3b78a694ff",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 13,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_029",
+      "digest": "b5727db503714c3d3209e8940e5ea961b868d1558bea30798bdac8dc3d4c760e",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 12,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_030",
+      "digest": "491836e42a43d59b5ad9d5ad06318c26dd52cae78585b45eabbbb9071faf23cf",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 22,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_031",
+      "digest": "fedb173d037d616be3578181b9adc84696104b1d254759c8e75c7ec65fc36c2b",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 17,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_032",
+      "digest": "37256a1c64e3bce44c1eb8c1a71db1af5a932f2fa675d0add4c0be39aabc5739",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 9,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_033",
+      "digest": "d92ae6b002bb6a7eb36f445bc3d4830c038c013c70c1e804913c61470c2b2448",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 10,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_034",
+      "digest": "ec9e5e210f8da7a39e9ea8655a748c1b8873b0a490f84b0a5e71a92209c12fb7",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 8,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_035",
+      "digest": "d0384a0d2cf5ccc68e9e247df79dd5f1fa06181c2f9a9b2be7e11ba1d7014ee6",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_036",
+      "digest": "825fc1c4a53d77fda9e8ba1b5fcad51ff67eb87c6fd60b8f6f4b03a7d475afc4",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 16,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_037",
+      "digest": "913a87e7947804439e8ae211ecead75d58987d61e50683dfdb34add0ef5f95b4",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 12,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_038",
+      "digest": "ba3bed0c1a3510dd4958f073fec2e95c3719c3c8a8bd5ecfd089603d3aeb84a3",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 13,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_039",
+      "digest": "72ef6f2cfe020828119f2666101c3e977bb708cd2c0331545f9d04b7c0239bb5",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 8,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_040",
+      "digest": "cc0ef6831cb1634cfc2b44a9e0238174dabacbc70d9602750317cd39a70dc87a",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 18,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_041",
+      "digest": "bb0ccca86a8a8ba88703910ddf0a90ee09d0973f4ec0bca38e6a48dab419282e",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_042",
+      "digest": "4aef5f5b664aa9b550c8f96ea6709d2b7529dbfb915fc2f0f28698dfca105376",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_043",
+      "digest": "2b94daa2838ffd037183082e6952cd19676a155c92eca748e38efdc4fda493bf",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 10,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_044",
+      "digest": "c9f06a07a64340657d13179c110632df9f555947578ff7be0f83e0a569ab00f1",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 12,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_045",
+      "digest": "0ac2df59e497fe4c3fc19921c6d63689c916c2fbabab0e7dbac2f2a39d4c0787",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_046",
+      "digest": "959e0f4c1403a7b969f3b7e0724e437e4a3899de1ebcdebbf320b75ffab609bd",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 8,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_047",
+      "digest": "3e2acefd97830ded0ca74071475089d469ad53e0bc5d7504e593362f0627b2a3",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 9,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_048",
+      "digest": "cf3d0f8bd02e7d35b65d39bc4c892894a3bb91cfebc504bebe02a308209be4a9",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 10,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_049",
+      "digest": "995aa4f184337dea32d9ea226d1ba4d5de166f430ec607c2f3bd8f96144d97de",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 10,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_050",
+      "digest": "654b090c167bcf566dfb1f56ea3635f824945767a718a5d9f2d04ea61a838182",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_051",
+      "digest": "a552fa79d4b38181f30c2a881cf1b8b4371eea41af064a079a73bbf92c897f1a",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 8,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_052",
+      "digest": "abc433acba2c483249983f6e9a9cea944df499419084ed5dd686ecac26520367",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 10,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_053",
+      "digest": "34d298f12547a91fefdd664fb74330b99929e7f1fbb23bebcc3492cf118b419a",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 12,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_054",
+      "digest": "c79751f64a662bd2f6b8c52da0331c7646cf108e2e23684e6bf35d963583f6dc",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 12,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_055",
+      "digest": "192464c4fd976e0544309b1c960b0bc2733e4afb224668049a1abfa2fdf8a218",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 10,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_056",
+      "digest": "2d19b6bd544f871fe80f71960df8b2ef22951d6e18f720496ab23124371d4e2a",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 15,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_057",
+      "digest": "962625cc0fab658b1b62a94d46a07d5785dbffc63de094456724d32e3578be19",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 12,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_058",
+      "digest": "2acbaa98009b3374dd9f045b54a3fe96011b221a2cd96e67a1e4056062972a82",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 12,
+      "retries": 0
+    },
+    {
+      "id": "compile:mod_059",
+      "digest": "cce60e4f8bb8b356f0ebbd1594fe2df3e0503652302160fcf0bcf36db3670d47",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 10,
+      "retries": 0
+    },
+    {
+      "id": "compile:sim_runner",
+      "digest": "2dd2f1315c5a4adfd467b9cd7051e4cd0a81e7fb475b6d752d9aa0c1b91926be",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 16,
+      "retries": 0
+    },
+    {
+      "id": "link",
+      "digest": "0de1421b8b21d199636eaca0c8118b75b769ad04ea860f265ff6c2bd5ccffea3",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 9,
+      "retries": 0
+    },
+    {
+      "id": "sim:1:1000",
+      "digest": "c598bb2a79cd25992841e05ba8f706a770aafed2334933ba3a425d0282ac927e",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 1,
+      "retries": 0
+    },
+    {
+      "id": "sim:1:5000",
+      "digest": "06d7bbd9a465d5fdff0afc021f9cdc5e45f85fb527622b0caae4c71d074fc6ec",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 1,
+      "retries": 0
+    },
+    {
+      "id": "sim:2:1000",
+      "digest": "722da8d4a07c24c98c40a72600803e85e1b4e267e11436063e10795f720e604f",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 0,
+      "retries": 0
+    },
+    {
+      "id": "sim:2:5000",
+      "digest": "65110ef9646a0c6de4e56130aa584bb3a4c5205f313b0d3c352dabdaf9864620",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 2,
+      "retries": 0
+    },
+    {
+      "id": "sim:3:1000",
+      "digest": "738e439f4281d2da33a152266acbfab82f1f3f529368ccfc12049ab134617de6",
+      "status": "miss",
+      "worker": "worker3",
+      "wall_ms": 1,
+      "retries": 0
+    },
+    {
+      "id": "sim:3:5000",
+      "digest": "5d605a8c14b12cfb158b8c9d0ce58604b2959a11d94d587bfa8d8f6196398306",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 1,
+      "retries": 0
+    },
+    {
+      "id": "sim:4:1000",
+      "digest": "705b0240bee2bd0565b482541cc3d0ab8f7a1f6f785860cf1beceebf2619af56",
+      "status": "miss",
+      "worker": "worker1",
+      "wall_ms": 0,
+      "retries": 0
+    },
+    {
+      "id": "sim:4:5000",
+      "digest": "63b08be68810a2783e4483abda3ba9e6b2d3885c33398b7cd9d5490fbcb21c54",
+      "status": "miss",
+      "worker": "worker2",
+      "wall_ms": 1,
+      "retries": 0
+    }
+  ]
+}

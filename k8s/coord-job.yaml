@@ -1,0 +1,38 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: forge-build
+  labels:
+    app: forge-coord
+spec:
+  backoffLimit: 1
+  template:
+    metadata:
+      labels:
+        app: forge-coord
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: coord
+          image: forgecache-coord:latest
+          imagePullPolicy: IfNotPresent
+          args:
+            - "build"
+            - "--manifest"
+            - "/workloads/firmware/build.json"
+            # Headless Service DNS; resolves to every worker pod.
+            - "--workers"
+            - "forge-worker:7701"
+            - "--jobs"
+            - "6"
+            - "--report"
+            - "/tmp/report.json"
+            - "--log-format"
+            - "json"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "128Mi"
+            limits:
+              cpu: "1"
+              memory: "512Mi"

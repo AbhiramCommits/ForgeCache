@@ -127,12 +127,19 @@ fn run_explain_command(args: ExplainArgs) -> anyhow::Result<()> {
 }
 
 fn parse_workers(spec: &str) -> anyhow::Result<Vec<SocketAddr>> {
+    use std::net::ToSocketAddrs;
     let mut out = Vec::new();
     for part in spec.split(',').map(str::trim).filter(|s| !s.is_empty()) {
-        let addr: SocketAddr = part
-            .parse()
-            .map_err(|e| anyhow::anyhow!("invalid worker address '{part}': {e}"))?;
-        out.push(addr);
+        // Accept both literal IPs and DNS names (e.g. Kubernetes Service DNS or
+        // docker-compose service names). Each name may resolve to many addresses.
+        let resolved: Vec<SocketAddr> = part
+            .to_socket_addrs()
+            .map_err(|e| anyhow::anyhow!("cannot resolve worker address '{part}': {e}"))?
+            .collect();
+        if resolved.is_empty() {
+            anyhow::bail!("worker address '{part}' resolved to nothing");
+        }
+        out.extend(resolved);
     }
     if out.is_empty() {
         anyhow::bail!("--workers must list at least one address");

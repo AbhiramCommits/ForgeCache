@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: forge-worker
+  labels:
+    app: forge-worker
+spec:
+  # Headless Service: DNS returns one A record per ready worker pod, giving the
+  # coordinator a stable `forge-worker` name that fans out to every replica.
+  clusterIP: None
+  selector:
+    app: forge-worker
+  ports:
+    - name: rpc
+      port: 7701
+      targetPort: rpc

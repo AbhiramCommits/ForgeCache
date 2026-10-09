@@ -1,0 +1,10 @@
+# Build context exclusions for the ForgeCache images.
+target/
+.git/
+bench/results/
+workloads/firmware/generated/
+workloads/firmware/build/
+.forge/
+**/__pycache__/
+**/*.pyc
+.DS_Store

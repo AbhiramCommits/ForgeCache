@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-10-09T21:54:33.847761+00:00",
+  "machine": {
+    "cpu": "Apple M3",
+    "cores": 8,
+    "os": "Darwin Abhirams-MacBook-Air.local 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:05:41 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T8122 arm64",
+    "platform": "darwin",
+    "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+    "python": "3.13.9"
+  },
+  "workload": {
+    "actions": 71,
+    "compile": 62,
+    "link": 1,
+    "sim": 8
+  },
+  "notes": [
+    "Docker: `forgecache-worker:latest` and `forgecache-coord:latest` built; `docker compose up --abort-on-container-exit` ran one cold build across 3 worker containers (71 actions, 0 hit / 71 miss, 314 ms, parallelism 3.02x). See bench/results/docker-report.json.",
+    "Kubernetes: k8s/ manifests validated with `kubeconform -strict` (3 resources, 3 valid). No cluster was available for a live apply; `kubectl --dry-run=client` requires API discovery and could not reach a server.",
+    "Sweep run with 4 workers, 2 slots each; cache cleaned before each measured build."
+  ],
+  "configs": [
+    {
+      "name": "serial-local",
+      "description": "single worker, jobs=1, no cache",
+      "trials": [
+        2.4221,
+        2.0207,
+        2.0125
+      ],
+      "min_s": 2.0125,
+      "median_s": 2.0207,
+      "mean_s": 2.1518,
+      "cache_hit_rate": 0.0,
+      "actions_executed": 71,
+      "achieved_parallelism": 0.907,
+      "workers": [
+        "w0"
+      ],
+      "jobs": 1
+    },
+    {
+      "name": "parallel-cold",
+      "description": "4 workers, empty cache",
+      "trials": [
+        0.6048,
+        0.5487,
+        0.6153
+      ],
+      "min_s": 0.5487,
+      "median_s": 0.6048,
+      "mean_s": 0.5896,
+      "cache_hit_rate": 0.0,
+      "actions_executed": 71,
+      "achieved_parallelism": 5.893,
+      "workers": [
+        "w0",
+        "w1",
+        "w2",
+        "w3"
+      ],
+      "jobs": 8
+    },
+    {
+      "name": "parallel-warm",
+      "description": "4 workers, populated cache",
+      "trials": [
+        0.0391,
+        0.036,
+        0.0343
+      ],
+      "min_s": 0.0343,
+      "median_s": 0.036,
+      "mean_s": 0.0365,
+      "cache_hit_rate": 1.0,
+      "actions_executed": 0,
+      "achieved_parallelism": 0.0,
+      "workers": [
+        "w0",
+        "w1",
+        "w2",
+        "w3"
+      ],
+      "jobs": 8
+    },
+    {
+      "name": "incremental",
+      "description": "touch one leaf .c, rebuild",
+      "trials": [
+        0.1732,
+        0.1935,
+        0.1693
+      ],
+      "min_s": 0.1693,
+      "median_s": 0.1732,
+      "mean_s": 0.1787,
+      "cache_hit_rate": 0.8592,
+      "actions_executed": 10,
+      "achieved_parallelism": 3.22,
+      "workers": [
+        "w0",
+        "w1",
+        "w2",
+        "w3"
+      ],
+      "jobs": 8
+    }
+  ],
+  "sweep": [
+    {
+      "jobs": 1,
+      "wall_s": 2.0794,
+      "achieved_parallelism": 0.893,
+      "total_cpu_ms": 1852
+    },
+    {
+      "jobs": 2,
+      "wall_s": 1.1106,
+      "achieved_parallelism": 1.683,
+      "total_cpu_ms": 1860
+    },
+    {
+      "jobs": 4,
+      "wall_s": 0.7347,
+      "achieved_parallelism": 3.121,
+      "total_cpu_ms": 2278
+    },
+    {
+      "jobs": 8,
+      "wall_s": 0.6365,
+      "achieved_parallelism": 5.774,
+      "total_cpu_ms": 3649
+    }
+  ]
+}
