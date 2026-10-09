@@ -2,7 +2,7 @@
 //!
 //! Library entry points for the coordinator: manifest planning
 //! ([`planner`]), the cache-aware scheduler ([`build`]), the build [`report`],
-//! persistent [`state`] for `explain`, and the [`explain`] implementation.
+//! persistent [`state`] for `explain`, and the `explain` implementation.
 
 pub mod build;
 pub mod explain;

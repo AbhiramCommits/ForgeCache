@@ -22,11 +22,21 @@ pub enum ForgeError {
 
     /// An action declared an input that does not exist on disk.
     #[error("action '{action}' references missing input '{path}'")]
-    MissingInput { action: String, path: PathBuf },
+    MissingInput {
+        /// Id of the action with the missing input.
+        action: String,
+        /// The input path that was not found.
+        path: PathBuf,
+    },
 
     /// A dependency edge pointed at an action id that is not in the graph.
     #[error("action '{action}' depends on unknown action '{dep}'")]
-    UnknownDep { action: String, dep: String },
+    UnknownDep {
+        /// Id of the action that referenced the unknown dependency.
+        action: String,
+        /// The unknown dependency id.
+        dep: String,
+    },
 
     /// Two actions in the manifest shared the same id.
     #[error("duplicate action id '{0}'")]

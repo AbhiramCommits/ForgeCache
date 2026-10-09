@@ -4,7 +4,7 @@
 //! coordinator and the workers agree on:
 //!
 //! * [`Action`] — the hermetic action model.
-//! * [`Digest`](digest::Digest) and [`action`] — stable, content-addressed
+//! * [`Digest`] and [`action`] — stable, content-addressed
 //!   digests computed with BLAKE3.
 //! * [`Cas`] — a filesystem content-addressed store.
 //! * [`ActionCache`] — a persistent map from action digest to [`ActionResult`].
@@ -14,6 +14,8 @@
 //! Everything in this crate is designed so that identical inputs produce
 //! identical digests on any machine, which is what makes the action cache
 //! correct rather than merely fast.
+
+#![warn(missing_docs)]
 
 pub mod action;
 pub mod action_cache;

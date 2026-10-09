@@ -7,7 +7,8 @@
 //! # Stability
 //!
 //! Digests are *stable across runs*: [`file_digest`] hashes the raw bytes of a
-//! file and [`action_digest`] hashes a canonical, deterministic serialization of
+//! file and [`action_digest`](crate::action::action_digest) hashes a canonical,
+//! deterministic serialization of
 //! an action (see [`crate::action`]). No timestamps, process ids, absolute paths
 //! outside the declared `base_dir`, or hash-map iteration order are allowed to
 //! leak into the digest, so two identical builds on two machines produce the
