@@ -221,3 +221,168 @@ async fn report_json_is_written() {
     assert!(value["cache_hit_rate"].is_number());
     worker.shutdown().await;
 }
+
+#[tokio::test]
+async fn cache_hit_restores_byte_identical_outputs() {
+    let dir = tempfile::tempdir().unwrap();
+    let worker = boot(&dir.path().join("scratch"), 4).await;
+    let manifest = pipeline_manifest(dir.path());
+    let options = BuildOptions::new(&manifest, vec![worker.addr()]);
+
+    run_build(&options).await.unwrap();
+    let elf = dir.path().join("firmware.elf");
+    let freshly_built = forge_core::file_digest(&elf).unwrap();
+
+    // Delete the outputs so the warm build must restore them from the CAS.
+    std::fs::remove_file(&elf).unwrap();
+    std::fs::remove_file(dir.path().join("sim.out")).unwrap();
+
+    let warm = run_build(&options).await.unwrap();
+    assert_eq!(warm.actions_hit, 4);
+    let restored = forge_core::file_digest(&elf).unwrap();
+    assert_eq!(
+        freshly_built, restored,
+        "restored output must be byte-identical"
+    );
+
+    worker.shutdown().await;
+}
+
+fn write_counter_script(dir: &Path) -> PathBuf {
+    let script = dir.join("counter.sh");
+    std::fs::write(
+        &script,
+        r#"#!/bin/sh
+DIR="$1"
+lock() { while ! mkdir "$DIR/lock" 2>/dev/null; do sleep 0.005; done; }
+unlock() { rmdir "$DIR/lock"; }
+lock
+cur=$(cat "$DIR/cur" 2>/dev/null || echo 0)
+cur=$((cur+1))
+echo "$cur" > "$DIR/cur"
+max=$(cat "$DIR/max" 2>/dev/null || echo 0)
+if [ "$cur" -gt "$max" ]; then echo "$cur" > "$DIR/max"; fi
+unlock
+sleep 0.15
+lock
+cur=$(cat "$DIR/cur")
+cur=$((cur-1))
+echo "$cur" > "$DIR/cur"
+unlock
+"#,
+    )
+    .unwrap();
+    script
+}
+
+#[tokio::test]
+async fn scheduler_respects_worker_slots() {
+    let dir = tempfile::tempdir().unwrap();
+    let counter = dir.path().join("counter");
+    std::fs::create_dir_all(&counter).unwrap();
+    let script = write_counter_script(dir.path());
+
+    // One worker with a single slot; the coordinator asks for 8 in-flight.
+    let worker = boot(&dir.path().join("scratch"), 1).await;
+
+    let mut actions = Vec::new();
+    for i in 0..6 {
+        actions.push(action(
+            &format!("job{i}"),
+            vec![
+                "/bin/sh".to_string(),
+                script.to_string_lossy().to_string(),
+                counter.to_string_lossy().to_string(),
+            ],
+            &[],
+            &[],
+            &[],
+        ));
+    }
+    let manifest = write_manifest(dir.path(), actions);
+    let mut options = BuildOptions::new(&manifest, vec![worker.addr()]);
+    options.jobs = 8;
+
+    let report = run_build(&options).await.unwrap();
+    assert_eq!(report.actions_miss, 6);
+
+    let max: u32 = std::fs::read_to_string(counter.join("max"))
+        .unwrap()
+        .trim()
+        .parse()
+        .unwrap();
+    assert!(
+        max <= 1,
+        "one worker slot must never run two actions, saw {max}"
+    );
+    worker.shutdown().await;
+}
+
+#[tokio::test]
+async fn action_timeout_fails_after_retries() {
+    let dir = tempfile::tempdir().unwrap();
+    let worker = boot(&dir.path().join("scratch"), 2).await;
+    let manifest = write_manifest(
+        dir.path(),
+        vec![serde_json::json!({
+            "id": "slow",
+            "command": ["sleep", "10"],
+            "env": {},
+            "inputs": [],
+            "outputs": [],
+            "deps": [],
+            "timeout_ms": 400,
+            "tags": []
+        })],
+    );
+    let options = BuildOptions::new(&manifest, vec![worker.addr()]);
+
+    let started = std::time::Instant::now();
+    let err = run_build(&options).await.unwrap_err();
+    assert!(started.elapsed() < std::time::Duration::from_secs(8));
+    assert!(
+        err.to_string().contains("slow"),
+        "error names the action: {err}"
+    );
+    worker.shutdown().await;
+}
+
+#[tokio::test]
+async fn cyclic_manifest_is_rejected() {
+    let dir = tempfile::tempdir().unwrap();
+    let manifest = write_manifest(
+        dir.path(),
+        vec![
+            action("a", shell("true"), &[], &[], &["b"]),
+            action("b", shell("true"), &[], &[], &["a"]),
+        ],
+    );
+    let err = run_build(&BuildOptions::new(&manifest, vec![]))
+        .await
+        .unwrap_err();
+    assert!(err.to_string().contains("cycle"), "got {err}");
+}
+
+#[tokio::test]
+async fn missing_dependency_is_rejected() {
+    let dir = tempfile::tempdir().unwrap();
+    let manifest = write_manifest(
+        dir.path(),
+        vec![action("a", shell("true"), &[], &[], &["ghost"])],
+    );
+    let err = run_build(&BuildOptions::new(&manifest, vec![]))
+        .await
+        .unwrap_err();
+    assert!(err.to_string().contains("ghost"), "got {err}");
+}
+
+#[tokio::test]
+async fn malformed_manifest_is_rejected() {
+    let dir = tempfile::tempdir().unwrap();
+    let manifest = dir.path().join("build.json");
+    std::fs::write(&manifest, b"{ not valid json").unwrap();
+    let err = run_build(&BuildOptions::new(&manifest, vec![]))
+        .await
+        .unwrap_err();
+    assert!(err.to_string().contains("invalid manifest"), "got {err}");
+}

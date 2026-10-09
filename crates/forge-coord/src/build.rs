@@ -455,6 +455,7 @@ pub async fn run_build(options: &BuildOptions) -> Result<Report> {
                                     worker: "cache".to_string(),
                                     wall_ms: 0,
                                     retries: 0,
+                                    stdout_digest: result.stdout_digest.as_hex().to_string(),
                                 },
                             );
                             continue;
@@ -524,6 +525,7 @@ pub async fn run_build(options: &BuildOptions) -> Result<Report> {
                         worker: result.worker.clone(),
                         wall_ms: success.result.wall_ms,
                         retries: result.retries,
+                        stdout_digest: success.result.stdout_digest.as_hex().to_string(),
                     },
                 );
             }
@@ -537,6 +539,7 @@ pub async fn run_build(options: &BuildOptions) -> Result<Report> {
                         worker: result.worker.clone(),
                         wall_ms: 0,
                         retries: result.retries,
+                        stdout_digest: String::new(),
                     },
                 );
                 let _ = finalize_report(
@@ -599,6 +602,7 @@ fn finalize_report(
                     worker: "none".to_string(),
                     wall_ms: 0,
                     retries: 0,
+                    stdout_digest: String::new(),
                 })
         })
         .collect();

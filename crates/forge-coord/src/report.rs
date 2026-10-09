@@ -44,6 +44,9 @@ pub struct ActionReport {
     pub wall_ms: u64,
     /// Number of retries consumed before success/failure.
     pub retries: u32,
+    /// Digest of the action's captured stdout (stable across cache hits).
+    #[serde(default)]
+    pub stdout_digest: String,
 }
 
 /// The aggregate result of one build invocation.

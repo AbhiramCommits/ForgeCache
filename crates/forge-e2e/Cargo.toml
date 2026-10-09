@@ -1,0 +1,18 @@
+[package]
+name = "forge-e2e"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+description = "End-to-end cache-correctness tests for ForgeCache"
+
+[lib]
+name = "forge_e2e"
+path = "src/lib.rs"
+
+[dev-dependencies]
+forge-core = { path = "../forge-core" }
+forge-coord = { path = "../forge-coord" }
+forge-worker = { path = "../forge-worker" }
+tempfile = "3"
+tokio = { workspace = true }

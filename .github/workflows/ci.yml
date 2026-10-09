@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    name: fmt, clippy, tests, smoke, benchmark
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install gcc and python3
+        run: sudo apt-get update && sudo apt-get install -y gcc python3
+
+      - name: cargo fmt --check
+        run: cargo fmt --all -- --check
+
+      - name: cargo clippy -D warnings
+        run: cargo clippy --all-targets -- -D warnings
+
+      - name: cargo test
+        run: cargo test --workspace
+
+      - name: cargo build
+        run: cargo build --workspace
+
+      - name: Generate a 24-module workload
+        run: |
+          python3 tools/gen_workload.py --modules 24 --fanout 3 --out workloads/firmware
+          python3 tools/gen_manifest.py --workload workloads/firmware
+
+      - name: Cold + warm build (fail if warm hit rate < 95%)
+        run: bash scripts/smoke_build.sh 24 95
+
+      - name: Tiny benchmark
+        run: python3 bench/run_bench.py --trials 1 --workers 2 --out bench/results
+
+      - name: Upload benchmark results
+        uses: actions/upload-artifact@v4
+        with:
+          name: bench-results
+          path: bench/results/
+          if-no-files-found: error
+
+  docker-worker:
+    name: build worker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker worker image
+        run: docker build -f docker/Dockerfile.worker -t forgecache-worker:ci .

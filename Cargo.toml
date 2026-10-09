@@ -4,6 +4,7 @@ members = [
     "crates/forge-core",
     "crates/forge-coord",
     "crates/forge-worker",
+    "crates/forge-e2e",
 ]
 
 [workspace.package]

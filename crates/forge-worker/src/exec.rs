@@ -182,7 +182,8 @@ pub async fn execute(
 
 fn materialize_inputs(workdir: &Path, inputs: &BTreeMap<PathBuf, Blob>) -> Result<(), ExecError> {
     for (rel, blob) in inputs {
-        let dest = workdir.join(rel);        if let Some(parent) = dest.parent() {
+        let dest = workdir.join(rel);
+        if let Some(parent) = dest.parent() {
             std::fs::create_dir_all(parent)
                 .map_err(|e| ExecError::new("io", format!("mkdir {}: {e}", parent.display())))?;
         }

@@ -232,6 +232,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "forge-e2e"
+version = "0.1.0"
+dependencies = [
+ "forge-coord",
+ "forge-core",
+ "forge-worker",
+ "tempfile",
+ "tokio",
+]
+
+[[package]]
 name = "forge-worker"
 version = "0.1.0"
 dependencies = [
