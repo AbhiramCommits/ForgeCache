@@ -134,6 +134,7 @@ pub async fn execute(
     let workdir = scratch.path.clone();
 
     materialize_inputs(&workdir, inputs)?;
+    prepare_output_dirs(&workdir, action)?;
 
     let started = Instant::now();
     let outcome = match &config.executor {
@@ -181,8 +182,7 @@ pub async fn execute(
 
 fn materialize_inputs(workdir: &Path, inputs: &BTreeMap<PathBuf, Blob>) -> Result<(), ExecError> {
     for (rel, blob) in inputs {
-        let dest = workdir.join(rel);
-        if let Some(parent) = dest.parent() {
+        let dest = workdir.join(rel);        if let Some(parent) = dest.parent() {
             std::fs::create_dir_all(parent)
                 .map_err(|e| ExecError::new("io", format!("mkdir {}: {e}", parent.display())))?;
         }
@@ -200,6 +200,18 @@ fn materialize_inputs(workdir: &Path, inputs: &BTreeMap<PathBuf, Blob>) -> Resul
         }
         std::fs::write(&dest, &blob.data)
             .map_err(|e| ExecError::new("io", format!("write {}: {e}", dest.display())))?;
+    }
+    Ok(())
+}
+
+/// Creates the parent directory of every declared output before running, so a
+/// command like `gcc -o build/x.o` does not have to create directories itself.
+fn prepare_output_dirs(workdir: &Path, action: &Action) -> Result<(), ExecError> {
+    for rel in &action.outputs {
+        if let Some(parent) = workdir.join(rel).parent() {
+            std::fs::create_dir_all(parent)
+                .map_err(|e| ExecError::new("io", format!("mkdir {}: {e}", parent.display())))?;
+        }
     }
     Ok(())
 }

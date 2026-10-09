@@ -1,0 +1,2237 @@
+{
+  "actions": [
+    {
+      "id": "compile:main",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/main.c",
+        "-o",
+        "build/main.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/firmware.h",
+        "generated/include/mod_000.h",
+        "generated/include/mod_001.h",
+        "generated/include/mod_002.h",
+        "generated/include/mod_003.h",
+        "generated/include/mod_004.h",
+        "generated/include/mod_005.h",
+        "generated/include/mod_006.h",
+        "generated/include/mod_007.h",
+        "generated/include/mod_008.h",
+        "generated/include/mod_009.h",
+        "generated/include/mod_010.h",
+        "generated/include/mod_011.h",
+        "generated/include/mod_012.h",
+        "generated/include/mod_013.h",
+        "generated/include/mod_014.h",
+        "generated/include/mod_015.h",
+        "generated/include/mod_016.h",
+        "generated/include/mod_017.h",
+        "generated/include/mod_018.h",
+        "generated/include/mod_019.h",
+        "generated/include/mod_020.h",
+        "generated/include/mod_021.h",
+        "generated/include/mod_022.h",
+        "generated/include/mod_023.h",
+        "generated/include/mod_024.h",
+        "generated/include/mod_025.h",
+        "generated/include/mod_026.h",
+        "generated/include/mod_027.h",
+        "generated/include/mod_028.h",
+        "generated/include/mod_029.h",
+        "generated/include/mod_030.h",
+        "generated/include/mod_031.h",
+        "generated/include/mod_032.h",
+        "generated/include/mod_033.h",
+        "generated/include/mod_034.h",
+        "generated/include/mod_035.h",
+        "generated/include/mod_036.h",
+        "generated/include/mod_037.h",
+        "generated/include/mod_038.h",
+        "generated/include/mod_039.h",
+        "generated/include/mod_040.h",
+        "generated/include/mod_041.h",
+        "generated/include/mod_042.h",
+        "generated/include/mod_043.h",
+        "generated/include/mod_044.h",
+        "generated/include/mod_045.h",
+        "generated/include/mod_046.h",
+        "generated/include/mod_047.h",
+        "generated/include/mod_048.h",
+        "generated/include/mod_049.h",
+        "generated/include/mod_050.h",
+        "generated/include/mod_051.h",
+        "generated/include/mod_052.h",
+        "generated/include/mod_053.h",
+        "generated/include/mod_054.h",
+        "generated/include/mod_055.h",
+        "generated/include/mod_056.h",
+        "generated/include/mod_057.h",
+        "generated/include/mod_058.h",
+        "generated/include/mod_059.h",
+        "generated/src/main.c"
+      ],
+      "outputs": [
+        "build/main.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_000",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_000.c",
+        "-o",
+        "build/mod_000.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_000.h",
+        "generated/src/mod_000.c"
+      ],
+      "outputs": [
+        "build/mod_000.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_001",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_001.c",
+        "-o",
+        "build/mod_001.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_000.h",
+        "generated/include/mod_001.h",
+        "generated/src/mod_001.c"
+      ],
+      "outputs": [
+        "build/mod_001.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_002",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_002.c",
+        "-o",
+        "build/mod_002.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_001.h",
+        "generated/include/mod_002.h",
+        "generated/src/mod_002.c"
+      ],
+      "outputs": [
+        "build/mod_002.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_003",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_003.c",
+        "-o",
+        "build/mod_003.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_000.h",
+        "generated/include/mod_002.h",
+        "generated/include/mod_003.h",
+        "generated/src/mod_003.c"
+      ],
+      "outputs": [
+        "build/mod_003.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_004",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_004.c",
+        "-o",
+        "build/mod_004.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_001.h",
+        "generated/include/mod_003.h",
+        "generated/include/mod_004.h",
+        "generated/src/mod_004.c"
+      ],
+      "outputs": [
+        "build/mod_004.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_005",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_005.c",
+        "-o",
+        "build/mod_005.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_000.h",
+        "generated/include/mod_002.h",
+        "generated/include/mod_004.h",
+        "generated/include/mod_005.h",
+        "generated/src/mod_005.c"
+      ],
+      "outputs": [
+        "build/mod_005.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_006",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_006.c",
+        "-o",
+        "build/mod_006.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_001.h",
+        "generated/include/mod_003.h",
+        "generated/include/mod_005.h",
+        "generated/include/mod_006.h",
+        "generated/src/mod_006.c"
+      ],
+      "outputs": [
+        "build/mod_006.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_007",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_007.c",
+        "-o",
+        "build/mod_007.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_002.h",
+        "generated/include/mod_004.h",
+        "generated/include/mod_006.h",
+        "generated/include/mod_007.h",
+        "generated/src/mod_007.c"
+      ],
+      "outputs": [
+        "build/mod_007.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_008",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_008.c",
+        "-o",
+        "build/mod_008.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_003.h",
+        "generated/include/mod_005.h",
+        "generated/include/mod_007.h",
+        "generated/include/mod_008.h",
+        "generated/src/mod_008.c"
+      ],
+      "outputs": [
+        "build/mod_008.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_009",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_009.c",
+        "-o",
+        "build/mod_009.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_004.h",
+        "generated/include/mod_006.h",
+        "generated/include/mod_008.h",
+        "generated/include/mod_009.h",
+        "generated/src/mod_009.c"
+      ],
+      "outputs": [
+        "build/mod_009.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_010",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_010.c",
+        "-o",
+        "build/mod_010.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_005.h",
+        "generated/include/mod_007.h",
+        "generated/include/mod_009.h",
+        "generated/include/mod_010.h",
+        "generated/src/mod_010.c"
+      ],
+      "outputs": [
+        "build/mod_010.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_011",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_011.c",
+        "-o",
+        "build/mod_011.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_006.h",
+        "generated/include/mod_008.h",
+        "generated/include/mod_010.h",
+        "generated/include/mod_011.h",
+        "generated/src/mod_011.c"
+      ],
+      "outputs": [
+        "build/mod_011.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_012",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_012.c",
+        "-o",
+        "build/mod_012.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_007.h",
+        "generated/include/mod_009.h",
+        "generated/include/mod_011.h",
+        "generated/include/mod_012.h",
+        "generated/src/mod_012.c"
+      ],
+      "outputs": [
+        "build/mod_012.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_013",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_013.c",
+        "-o",
+        "build/mod_013.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_008.h",
+        "generated/include/mod_010.h",
+        "generated/include/mod_012.h",
+        "generated/include/mod_013.h",
+        "generated/src/mod_013.c"
+      ],
+      "outputs": [
+        "build/mod_013.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_014",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_014.c",
+        "-o",
+        "build/mod_014.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_009.h",
+        "generated/include/mod_011.h",
+        "generated/include/mod_013.h",
+        "generated/include/mod_014.h",
+        "generated/src/mod_014.c"
+      ],
+      "outputs": [
+        "build/mod_014.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_015",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_015.c",
+        "-o",
+        "build/mod_015.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_010.h",
+        "generated/include/mod_012.h",
+        "generated/include/mod_014.h",
+        "generated/include/mod_015.h",
+        "generated/src/mod_015.c"
+      ],
+      "outputs": [
+        "build/mod_015.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_016",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_016.c",
+        "-o",
+        "build/mod_016.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_011.h",
+        "generated/include/mod_013.h",
+        "generated/include/mod_015.h",
+        "generated/include/mod_016.h",
+        "generated/src/mod_016.c"
+      ],
+      "outputs": [
+        "build/mod_016.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_017",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_017.c",
+        "-o",
+        "build/mod_017.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_012.h",
+        "generated/include/mod_014.h",
+        "generated/include/mod_016.h",
+        "generated/include/mod_017.h",
+        "generated/src/mod_017.c"
+      ],
+      "outputs": [
+        "build/mod_017.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_018",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_018.c",
+        "-o",
+        "build/mod_018.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_013.h",
+        "generated/include/mod_015.h",
+        "generated/include/mod_017.h",
+        "generated/include/mod_018.h",
+        "generated/src/mod_018.c"
+      ],
+      "outputs": [
+        "build/mod_018.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_019",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_019.c",
+        "-o",
+        "build/mod_019.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_014.h",
+        "generated/include/mod_016.h",
+        "generated/include/mod_018.h",
+        "generated/include/mod_019.h",
+        "generated/src/mod_019.c"
+      ],
+      "outputs": [
+        "build/mod_019.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_020",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_020.c",
+        "-o",
+        "build/mod_020.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_015.h",
+        "generated/include/mod_017.h",
+        "generated/include/mod_019.h",
+        "generated/include/mod_020.h",
+        "generated/src/mod_020.c"
+      ],
+      "outputs": [
+        "build/mod_020.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_021",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_021.c",
+        "-o",
+        "build/mod_021.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_016.h",
+        "generated/include/mod_018.h",
+        "generated/include/mod_020.h",
+        "generated/include/mod_021.h",
+        "generated/src/mod_021.c"
+      ],
+      "outputs": [
+        "build/mod_021.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_022",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_022.c",
+        "-o",
+        "build/mod_022.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_017.h",
+        "generated/include/mod_019.h",
+        "generated/include/mod_021.h",
+        "generated/include/mod_022.h",
+        "generated/src/mod_022.c"
+      ],
+      "outputs": [
+        "build/mod_022.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_023",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_023.c",
+        "-o",
+        "build/mod_023.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_018.h",
+        "generated/include/mod_020.h",
+        "generated/include/mod_022.h",
+        "generated/include/mod_023.h",
+        "generated/src/mod_023.c"
+      ],
+      "outputs": [
+        "build/mod_023.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_024",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_024.c",
+        "-o",
+        "build/mod_024.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_019.h",
+        "generated/include/mod_021.h",
+        "generated/include/mod_023.h",
+        "generated/include/mod_024.h",
+        "generated/src/mod_024.c"
+      ],
+      "outputs": [
+        "build/mod_024.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_025",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_025.c",
+        "-o",
+        "build/mod_025.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_020.h",
+        "generated/include/mod_022.h",
+        "generated/include/mod_024.h",
+        "generated/include/mod_025.h",
+        "generated/src/mod_025.c"
+      ],
+      "outputs": [
+        "build/mod_025.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_026",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_026.c",
+        "-o",
+        "build/mod_026.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_021.h",
+        "generated/include/mod_023.h",
+        "generated/include/mod_025.h",
+        "generated/include/mod_026.h",
+        "generated/src/mod_026.c"
+      ],
+      "outputs": [
+        "build/mod_026.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_027",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_027.c",
+        "-o",
+        "build/mod_027.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_022.h",
+        "generated/include/mod_024.h",
+        "generated/include/mod_026.h",
+        "generated/include/mod_027.h",
+        "generated/src/mod_027.c"
+      ],
+      "outputs": [
+        "build/mod_027.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_028",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_028.c",
+        "-o",
+        "build/mod_028.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_023.h",
+        "generated/include/mod_025.h",
+        "generated/include/mod_027.h",
+        "generated/include/mod_028.h",
+        "generated/src/mod_028.c"
+      ],
+      "outputs": [
+        "build/mod_028.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_029",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_029.c",
+        "-o",
+        "build/mod_029.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_024.h",
+        "generated/include/mod_026.h",
+        "generated/include/mod_028.h",
+        "generated/include/mod_029.h",
+        "generated/src/mod_029.c"
+      ],
+      "outputs": [
+        "build/mod_029.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_030",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_030.c",
+        "-o",
+        "build/mod_030.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_025.h",
+        "generated/include/mod_027.h",
+        "generated/include/mod_029.h",
+        "generated/include/mod_030.h",
+        "generated/src/mod_030.c"
+      ],
+      "outputs": [
+        "build/mod_030.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_031",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_031.c",
+        "-o",
+        "build/mod_031.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_026.h",
+        "generated/include/mod_028.h",
+        "generated/include/mod_030.h",
+        "generated/include/mod_031.h",
+        "generated/src/mod_031.c"
+      ],
+      "outputs": [
+        "build/mod_031.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_032",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_032.c",
+        "-o",
+        "build/mod_032.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_027.h",
+        "generated/include/mod_029.h",
+        "generated/include/mod_031.h",
+        "generated/include/mod_032.h",
+        "generated/src/mod_032.c"
+      ],
+      "outputs": [
+        "build/mod_032.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_033",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_033.c",
+        "-o",
+        "build/mod_033.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_028.h",
+        "generated/include/mod_030.h",
+        "generated/include/mod_032.h",
+        "generated/include/mod_033.h",
+        "generated/src/mod_033.c"
+      ],
+      "outputs": [
+        "build/mod_033.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_034",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_034.c",
+        "-o",
+        "build/mod_034.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_029.h",
+        "generated/include/mod_031.h",
+        "generated/include/mod_033.h",
+        "generated/include/mod_034.h",
+        "generated/src/mod_034.c"
+      ],
+      "outputs": [
+        "build/mod_034.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_035",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_035.c",
+        "-o",
+        "build/mod_035.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_030.h",
+        "generated/include/mod_032.h",
+        "generated/include/mod_034.h",
+        "generated/include/mod_035.h",
+        "generated/src/mod_035.c"
+      ],
+      "outputs": [
+        "build/mod_035.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_036",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_036.c",
+        "-o",
+        "build/mod_036.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_031.h",
+        "generated/include/mod_033.h",
+        "generated/include/mod_035.h",
+        "generated/include/mod_036.h",
+        "generated/src/mod_036.c"
+      ],
+      "outputs": [
+        "build/mod_036.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_037",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_037.c",
+        "-o",
+        "build/mod_037.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_032.h",
+        "generated/include/mod_034.h",
+        "generated/include/mod_036.h",
+        "generated/include/mod_037.h",
+        "generated/src/mod_037.c"
+      ],
+      "outputs": [
+        "build/mod_037.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_038",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_038.c",
+        "-o",
+        "build/mod_038.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_033.h",
+        "generated/include/mod_035.h",
+        "generated/include/mod_037.h",
+        "generated/include/mod_038.h",
+        "generated/src/mod_038.c"
+      ],
+      "outputs": [
+        "build/mod_038.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_039",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_039.c",
+        "-o",
+        "build/mod_039.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_034.h",
+        "generated/include/mod_036.h",
+        "generated/include/mod_038.h",
+        "generated/include/mod_039.h",
+        "generated/src/mod_039.c"
+      ],
+      "outputs": [
+        "build/mod_039.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_040",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_040.c",
+        "-o",
+        "build/mod_040.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_035.h",
+        "generated/include/mod_037.h",
+        "generated/include/mod_039.h",
+        "generated/include/mod_040.h",
+        "generated/src/mod_040.c"
+      ],
+      "outputs": [
+        "build/mod_040.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_041",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_041.c",
+        "-o",
+        "build/mod_041.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_036.h",
+        "generated/include/mod_038.h",
+        "generated/include/mod_040.h",
+        "generated/include/mod_041.h",
+        "generated/src/mod_041.c"
+      ],
+      "outputs": [
+        "build/mod_041.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_042",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_042.c",
+        "-o",
+        "build/mod_042.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_037.h",
+        "generated/include/mod_039.h",
+        "generated/include/mod_041.h",
+        "generated/include/mod_042.h",
+        "generated/src/mod_042.c"
+      ],
+      "outputs": [
+        "build/mod_042.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_043",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_043.c",
+        "-o",
+        "build/mod_043.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_038.h",
+        "generated/include/mod_040.h",
+        "generated/include/mod_042.h",
+        "generated/include/mod_043.h",
+        "generated/src/mod_043.c"
+      ],
+      "outputs": [
+        "build/mod_043.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_044",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_044.c",
+        "-o",
+        "build/mod_044.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_039.h",
+        "generated/include/mod_041.h",
+        "generated/include/mod_043.h",
+        "generated/include/mod_044.h",
+        "generated/src/mod_044.c"
+      ],
+      "outputs": [
+        "build/mod_044.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_045",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_045.c",
+        "-o",
+        "build/mod_045.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_040.h",
+        "generated/include/mod_042.h",
+        "generated/include/mod_044.h",
+        "generated/include/mod_045.h",
+        "generated/src/mod_045.c"
+      ],
+      "outputs": [
+        "build/mod_045.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_046",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_046.c",
+        "-o",
+        "build/mod_046.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_041.h",
+        "generated/include/mod_043.h",
+        "generated/include/mod_045.h",
+        "generated/include/mod_046.h",
+        "generated/src/mod_046.c"
+      ],
+      "outputs": [
+        "build/mod_046.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_047",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_047.c",
+        "-o",
+        "build/mod_047.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_042.h",
+        "generated/include/mod_044.h",
+        "generated/include/mod_046.h",
+        "generated/include/mod_047.h",
+        "generated/src/mod_047.c"
+      ],
+      "outputs": [
+        "build/mod_047.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_048",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_048.c",
+        "-o",
+        "build/mod_048.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_043.h",
+        "generated/include/mod_045.h",
+        "generated/include/mod_047.h",
+        "generated/include/mod_048.h",
+        "generated/src/mod_048.c"
+      ],
+      "outputs": [
+        "build/mod_048.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_049",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_049.c",
+        "-o",
+        "build/mod_049.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_044.h",
+        "generated/include/mod_046.h",
+        "generated/include/mod_048.h",
+        "generated/include/mod_049.h",
+        "generated/src/mod_049.c"
+      ],
+      "outputs": [
+        "build/mod_049.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_050",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_050.c",
+        "-o",
+        "build/mod_050.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_045.h",
+        "generated/include/mod_047.h",
+        "generated/include/mod_049.h",
+        "generated/include/mod_050.h",
+        "generated/src/mod_050.c"
+      ],
+      "outputs": [
+        "build/mod_050.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_051",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_051.c",
+        "-o",
+        "build/mod_051.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_046.h",
+        "generated/include/mod_048.h",
+        "generated/include/mod_050.h",
+        "generated/include/mod_051.h",
+        "generated/src/mod_051.c"
+      ],
+      "outputs": [
+        "build/mod_051.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_052",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_052.c",
+        "-o",
+        "build/mod_052.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_047.h",
+        "generated/include/mod_049.h",
+        "generated/include/mod_051.h",
+        "generated/include/mod_052.h",
+        "generated/src/mod_052.c"
+      ],
+      "outputs": [
+        "build/mod_052.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_053",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_053.c",
+        "-o",
+        "build/mod_053.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_048.h",
+        "generated/include/mod_050.h",
+        "generated/include/mod_052.h",
+        "generated/include/mod_053.h",
+        "generated/src/mod_053.c"
+      ],
+      "outputs": [
+        "build/mod_053.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_054",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_054.c",
+        "-o",
+        "build/mod_054.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_049.h",
+        "generated/include/mod_051.h",
+        "generated/include/mod_053.h",
+        "generated/include/mod_054.h",
+        "generated/src/mod_054.c"
+      ],
+      "outputs": [
+        "build/mod_054.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_055",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_055.c",
+        "-o",
+        "build/mod_055.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_050.h",
+        "generated/include/mod_052.h",
+        "generated/include/mod_054.h",
+        "generated/include/mod_055.h",
+        "generated/src/mod_055.c"
+      ],
+      "outputs": [
+        "build/mod_055.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_056",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_056.c",
+        "-o",
+        "build/mod_056.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_051.h",
+        "generated/include/mod_053.h",
+        "generated/include/mod_055.h",
+        "generated/include/mod_056.h",
+        "generated/src/mod_056.c"
+      ],
+      "outputs": [
+        "build/mod_056.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_057",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_057.c",
+        "-o",
+        "build/mod_057.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_052.h",
+        "generated/include/mod_054.h",
+        "generated/include/mod_056.h",
+        "generated/include/mod_057.h",
+        "generated/src/mod_057.c"
+      ],
+      "outputs": [
+        "build/mod_057.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_058",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_058.c",
+        "-o",
+        "build/mod_058.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_053.h",
+        "generated/include/mod_055.h",
+        "generated/include/mod_057.h",
+        "generated/include/mod_058.h",
+        "generated/src/mod_058.c"
+      ],
+      "outputs": [
+        "build/mod_058.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:mod_059",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/src/mod_059.c",
+        "-o",
+        "build/mod_059.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/mod_054.h",
+        "generated/include/mod_056.h",
+        "generated/include/mod_058.h",
+        "generated/include/mod_059.h",
+        "generated/src/mod_059.c"
+      ],
+      "outputs": [
+        "build/mod_059.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "compile:sim_runner",
+      "command": [
+        "gcc",
+        "-c",
+        "-O1",
+        "-I",
+        "generated/include",
+        "generated/sim/sim_runner.c",
+        "-o",
+        "build/sim_runner.o"
+      ],
+      "env": {},
+      "inputs": [
+        "generated/include/firmware.h",
+        "generated/sim/sim_runner.c"
+      ],
+      "outputs": [
+        "build/sim_runner.o"
+      ],
+      "deps": [],
+      "timeout_ms": 120000,
+      "tags": [
+        "compile"
+      ]
+    },
+    {
+      "id": "link",
+      "command": [
+        "gcc",
+        "-o",
+        "build/firmware.elf",
+        "build/main.o",
+        "build/mod_000.o",
+        "build/mod_001.o",
+        "build/mod_002.o",
+        "build/mod_003.o",
+        "build/mod_004.o",
+        "build/mod_005.o",
+        "build/mod_006.o",
+        "build/mod_007.o",
+        "build/mod_008.o",
+        "build/mod_009.o",
+        "build/mod_010.o",
+        "build/mod_011.o",
+        "build/mod_012.o",
+        "build/mod_013.o",
+        "build/mod_014.o",
+        "build/mod_015.o",
+        "build/mod_016.o",
+        "build/mod_017.o",
+        "build/mod_018.o",
+        "build/mod_019.o",
+        "build/mod_020.o",
+        "build/mod_021.o",
+        "build/mod_022.o",
+        "build/mod_023.o",
+        "build/mod_024.o",
+        "build/mod_025.o",
+        "build/mod_026.o",
+        "build/mod_027.o",
+        "build/mod_028.o",
+        "build/mod_029.o",
+        "build/mod_030.o",
+        "build/mod_031.o",
+        "build/mod_032.o",
+        "build/mod_033.o",
+        "build/mod_034.o",
+        "build/mod_035.o",
+        "build/mod_036.o",
+        "build/mod_037.o",
+        "build/mod_038.o",
+        "build/mod_039.o",
+        "build/mod_040.o",
+        "build/mod_041.o",
+        "build/mod_042.o",
+        "build/mod_043.o",
+        "build/mod_044.o",
+        "build/mod_045.o",
+        "build/mod_046.o",
+        "build/mod_047.o",
+        "build/mod_048.o",
+        "build/mod_049.o",
+        "build/mod_050.o",
+        "build/mod_051.o",
+        "build/mod_052.o",
+        "build/mod_053.o",
+        "build/mod_054.o",
+        "build/mod_055.o",
+        "build/mod_056.o",
+        "build/mod_057.o",
+        "build/mod_058.o",
+        "build/mod_059.o",
+        "build/sim_runner.o"
+      ],
+      "env": {},
+      "inputs": [
+        "build/main.o",
+        "build/mod_000.o",
+        "build/mod_001.o",
+        "build/mod_002.o",
+        "build/mod_003.o",
+        "build/mod_004.o",
+        "build/mod_005.o",
+        "build/mod_006.o",
+        "build/mod_007.o",
+        "build/mod_008.o",
+        "build/mod_009.o",
+        "build/mod_010.o",
+        "build/mod_011.o",
+        "build/mod_012.o",
+        "build/mod_013.o",
+        "build/mod_014.o",
+        "build/mod_015.o",
+        "build/mod_016.o",
+        "build/mod_017.o",
+        "build/mod_018.o",
+        "build/mod_019.o",
+        "build/mod_020.o",
+        "build/mod_021.o",
+        "build/mod_022.o",
+        "build/mod_023.o",
+        "build/mod_024.o",
+        "build/mod_025.o",
+        "build/mod_026.o",
+        "build/mod_027.o",
+        "build/mod_028.o",
+        "build/mod_029.o",
+        "build/mod_030.o",
+        "build/mod_031.o",
+        "build/mod_032.o",
+        "build/mod_033.o",
+        "build/mod_034.o",
+        "build/mod_035.o",
+        "build/mod_036.o",
+        "build/mod_037.o",
+        "build/mod_038.o",
+        "build/mod_039.o",
+        "build/mod_040.o",
+        "build/mod_041.o",
+        "build/mod_042.o",
+        "build/mod_043.o",
+        "build/mod_044.o",
+        "build/mod_045.o",
+        "build/mod_046.o",
+        "build/mod_047.o",
+        "build/mod_048.o",
+        "build/mod_049.o",
+        "build/mod_050.o",
+        "build/mod_051.o",
+        "build/mod_052.o",
+        "build/mod_053.o",
+        "build/mod_054.o",
+        "build/mod_055.o",
+        "build/mod_056.o",
+        "build/mod_057.o",
+        "build/mod_058.o",
+        "build/mod_059.o",
+        "build/sim_runner.o"
+      ],
+      "outputs": [
+        "build/firmware.elf"
+      ],
+      "deps": [
+        "compile:main",
+        "compile:mod_000",
+        "compile:mod_001",
+        "compile:mod_002",
+        "compile:mod_003",
+        "compile:mod_004",
+        "compile:mod_005",
+        "compile:mod_006",
+        "compile:mod_007",
+        "compile:mod_008",
+        "compile:mod_009",
+        "compile:mod_010",
+        "compile:mod_011",
+        "compile:mod_012",
+        "compile:mod_013",
+        "compile:mod_014",
+        "compile:mod_015",
+        "compile:mod_016",
+        "compile:mod_017",
+        "compile:mod_018",
+        "compile:mod_019",
+        "compile:mod_020",
+        "compile:mod_021",
+        "compile:mod_022",
+        "compile:mod_023",
+        "compile:mod_024",
+        "compile:mod_025",
+        "compile:mod_026",
+        "compile:mod_027",
+        "compile:mod_028",
+        "compile:mod_029",
+        "compile:mod_030",
+        "compile:mod_031",
+        "compile:mod_032",
+        "compile:mod_033",
+        "compile:mod_034",
+        "compile:mod_035",
+        "compile:mod_036",
+        "compile:mod_037",
+        "compile:mod_038",
+        "compile:mod_039",
+        "compile:mod_040",
+        "compile:mod_041",
+        "compile:mod_042",
+        "compile:mod_043",
+        "compile:mod_044",
+        "compile:mod_045",
+        "compile:mod_046",
+        "compile:mod_047",
+        "compile:mod_048",
+        "compile:mod_049",
+        "compile:mod_050",
+        "compile:mod_051",
+        "compile:mod_052",
+        "compile:mod_053",
+        "compile:mod_054",
+        "compile:mod_055",
+        "compile:mod_056",
+        "compile:mod_057",
+        "compile:mod_058",
+        "compile:mod_059",
+        "compile:sim_runner"
+      ],
+      "timeout_ms": 120000,
+      "tags": [
+        "link"
+      ]
+    },
+    {
+      "id": "sim:1:1000",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "chmod +x build/firmware.elf && ./build/firmware.elf"
+      ],
+      "env": {
+        "SIM_SEED": "1",
+        "SIM_TICKS": "1000"
+      },
+      "inputs": [
+        "build/firmware.elf"
+      ],
+      "outputs": [],
+      "deps": [
+        "link"
+      ],
+      "timeout_ms": 120000,
+      "tags": [
+        "sim"
+      ]
+    },
+    {
+      "id": "sim:1:5000",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "chmod +x build/firmware.elf && ./build/firmware.elf"
+      ],
+      "env": {
+        "SIM_SEED": "1",
+        "SIM_TICKS": "5000"
+      },
+      "inputs": [
+        "build/firmware.elf"
+      ],
+      "outputs": [],
+      "deps": [
+        "link"
+      ],
+      "timeout_ms": 120000,
+      "tags": [
+        "sim"
+      ]
+    },
+    {
+      "id": "sim:2:1000",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "chmod +x build/firmware.elf && ./build/firmware.elf"
+      ],
+      "env": {
+        "SIM_SEED": "2",
+        "SIM_TICKS": "1000"
+      },
+      "inputs": [
+        "build/firmware.elf"
+      ],
+      "outputs": [],
+      "deps": [
+        "link"
+      ],
+      "timeout_ms": 120000,
+      "tags": [
+        "sim"
+      ]
+    },
+    {
+      "id": "sim:2:5000",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "chmod +x build/firmware.elf && ./build/firmware.elf"
+      ],
+      "env": {
+        "SIM_SEED": "2",
+        "SIM_TICKS": "5000"
+      },
+      "inputs": [
+        "build/firmware.elf"
+      ],
+      "outputs": [],
+      "deps": [
+        "link"
+      ],
+      "timeout_ms": 120000,
+      "tags": [
+        "sim"
+      ]
+    },
+    {
+      "id": "sim:3:1000",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "chmod +x build/firmware.elf && ./build/firmware.elf"
+      ],
+      "env": {
+        "SIM_SEED": "3",
+        "SIM_TICKS": "1000"
+      },
+      "inputs": [
+        "build/firmware.elf"
+      ],
+      "outputs": [],
+      "deps": [
+        "link"
+      ],
+      "timeout_ms": 120000,
+      "tags": [
+        "sim"
+      ]
+    },
+    {
+      "id": "sim:3:5000",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "chmod +x build/firmware.elf && ./build/firmware.elf"
+      ],
+      "env": {
+        "SIM_SEED": "3",
+        "SIM_TICKS": "5000"
+      },
+      "inputs": [
+        "build/firmware.elf"
+      ],
+      "outputs": [],
+      "deps": [
+        "link"
+      ],
+      "timeout_ms": 120000,
+      "tags": [
+        "sim"
+      ]
+    },
+    {
+      "id": "sim:4:1000",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "chmod +x build/firmware.elf && ./build/firmware.elf"
+      ],
+      "env": {
+        "SIM_SEED": "4",
+        "SIM_TICKS": "1000"
+      },
+      "inputs": [
+        "build/firmware.elf"
+      ],
+      "outputs": [],
+      "deps": [
+        "link"
+      ],
+      "timeout_ms": 120000,
+      "tags": [
+        "sim"
+      ]
+    },
+    {
+      "id": "sim:4:5000",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "chmod +x build/firmware.elf && ./build/firmware.elf"
+      ],
+      "env": {
+        "SIM_SEED": "4",
+        "SIM_TICKS": "5000"
+      },
+      "inputs": [
+        "build/firmware.elf"
+      ],
+      "outputs": [],
+      "deps": [
+        "link"
+      ],
+      "timeout_ms": 120000,
+      "tags": [
+        "sim"
+      ]
+    }
+  ]
+}
