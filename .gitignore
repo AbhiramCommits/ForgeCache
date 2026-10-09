@@ -1,0 +1,18 @@
+# Rust
+/target
+**/*.rs.bk
+Cargo.lock.orig
+
+# ForgeCache state and scratch
+.forge/
+bench/results/.scratch/
+workloads/firmware/generated/
+bench/scratch/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+*.swp
