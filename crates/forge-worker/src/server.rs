@@ -1,24 +1,28 @@
 //! The worker daemon: a tokio TCP server that enforces a global slot limit and
 //! executes actions on behalf of the coordinator.
+//!
+//! Shutdown is cooperative: a `watch` channel is shared with every connection
+//! task, so calling [`RunningWorker::shutdown`] stops the accept loop *and*
+//! closes live connections. That makes it possible to simulate a worker being
+//! killed mid-build.
 
 use std::net::SocketAddr;
 use std::sync::Arc;
 
 use forge_core::protocol::{read_message, write_message, ExecOutcome, Message};
 use tokio::net::{TcpListener, TcpStream};
-use tokio::sync::{mpsc, oneshot, Semaphore};
+use tokio::sync::{mpsc, watch, Semaphore};
 use tokio::task::JoinHandle;
 use tracing::{debug, info, warn};
 
 use crate::exec::{execute, WorkerConfig};
 
-/// A running worker. Dropping it without calling [`RunningWorker::shutdown`]
-/// detaches the accept loop.
+/// A running worker. Dropping it signals shutdown but does not await the loop.
 pub struct RunningWorker {
     addr: SocketAddr,
     worker_id: String,
     slots: u32,
-    shutdown: Option<oneshot::Sender<()>>,
+    shutdown: Option<watch::Sender<bool>>,
     join: Option<JoinHandle<()>>,
 }
 
@@ -38,22 +42,25 @@ impl RunningWorker {
         self.slots
     }
 
-    /// Signals the accept loop to stop and waits for it to finish.
+    /// Signals every connection and the accept loop to stop, then waits for the
+    /// accept loop task.
     pub async fn shutdown(mut self) {
-        if let Some(tx) = self.shutdown.take() {
-            let _ = tx.send(());
-        }
+        self.signal();
         if let Some(join) = self.join.take() {
             let _ = join.await;
+        }
+    }
+
+    fn signal(&mut self) {
+        if let Some(tx) = self.shutdown.take() {
+            let _ = tx.send(true);
         }
     }
 }
 
 impl Drop for RunningWorker {
     fn drop(&mut self) {
-        if let Some(tx) = self.shutdown.take() {
-            let _ = tx.send(());
-        }
+        self.signal();
     }
 }
 
@@ -64,25 +71,29 @@ pub async fn start(addr: SocketAddr, config: WorkerConfig) -> std::io::Result<Ru
     let local = listener.local_addr()?;
     let worker_id = config.worker_id.clone();
     let slots = config.slots;
-    let (shutdown_tx, mut shutdown_rx) = oneshot::channel::<()>();
+    let (shutdown_tx, shutdown_rx) = watch::channel(false);
     let semaphore = Arc::new(Semaphore::new(config.slots as usize));
 
     info!(%local, %worker_id, slots, "worker listening");
 
+    let mut accept_shutdown = shutdown_rx.clone();
     let join = tokio::spawn(async move {
         loop {
             tokio::select! {
-                _ = &mut shutdown_rx => {
-                    debug!("worker accept loop shutting down");
-                    break;
+                changed = accept_shutdown.changed() => {
+                    if changed.is_err() || *accept_shutdown.borrow() {
+                        debug!("worker accept loop shutting down");
+                        break;
+                    }
                 }
                 accepted = listener.accept() => {
                     match accepted {
                         Ok((stream, peer)) => {
                             let config = config.clone();
                             let semaphore = Arc::clone(&semaphore);
+                            let conn_shutdown = shutdown_rx.clone();
                             tokio::spawn(async move {
-                                if let Err(e) = handle_connection(stream, peer, config, semaphore).await {
+                                if let Err(e) = handle_connection(stream, peer, config, semaphore, conn_shutdown).await {
                                     debug!(%peer, error = %e, "connection ended with error");
                                 }
                             });
@@ -108,6 +119,7 @@ async fn handle_connection(
     peer: SocketAddr,
     config: WorkerConfig,
     semaphore: Arc<Semaphore>,
+    mut shutdown: watch::Receiver<bool>,
 ) -> std::io::Result<()> {
     let (mut read_half, mut write_half) = stream.into_split();
     write_message(
@@ -129,7 +141,18 @@ async fn handle_connection(
     });
 
     loop {
-        match read_message(&mut read_half).await {
+        let incoming = tokio::select! {
+            changed = shutdown.changed() => {
+                if changed.is_err() || *shutdown.borrow() {
+                    debug!(%peer, "connection shutting down");
+                    break;
+                }
+                continue;
+            }
+            message = read_message(&mut read_half) => message,
+        };
+
+        match incoming {
             Ok(Message::ExecRequest {
                 request_id,
                 action,

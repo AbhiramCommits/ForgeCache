@@ -9,8 +9,13 @@ description = "ForgeCache coordinator: planner, cache-aware scheduler, and CLI"
 name = "forge-coord"
 path = "src/main.rs"
 
+[lib]
+name = "forge_coord"
+path = "src/lib.rs"
+
 [dependencies]
 forge-core = { path = "../forge-core" }
+forge-worker = { path = "../forge-worker" }
 anyhow.workspace = true
 thiserror.workspace = true
 serde.workspace = true
