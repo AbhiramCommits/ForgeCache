@@ -237,6 +237,7 @@ dependencies = [
  "anyhow",
  "clap",
  "forge-core",
+ "libc",
  "rand",
  "serde",
  "serde_json",

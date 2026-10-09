@@ -18,16 +18,20 @@
 pub mod action;
 pub mod action_cache;
 pub mod cas;
+pub mod client;
 pub mod digest;
 pub mod error;
 pub mod graph;
+pub mod protocol;
 
 pub use action::{action_digest, action_digest_at, resolve, Action};
 pub use action_cache::{ActionCache, ActionResult};
 pub use cas::{Cas, PutOutcome};
+pub use client::WorkerClient;
 pub use digest::{bytes_digest, file_digest, Digest};
 pub use error::{ForgeError, Result};
 pub use graph::BuildGraph;
+pub use protocol::{Blob, ClientError, ExecError, ExecOutcome, ExecSuccess, Message};
 
 /// Default relative path (under the working directory) of the ForgeCache state.
 pub const FORGE_DIR: &str = ".forge";
